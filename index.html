@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlook Add-in Test - GitHub Pages</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background-color: #f5f5f5; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .status { 
+            background: #d4edda; 
+            color: #155724; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
+        }
+        .file-list { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
+        }
+        .file-list a { 
+            display: block; 
+            margin: 5px 0; 
+            color: #007bff; 
+            text-decoration: none; 
+        }
+        .file-list a:hover { 
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Outlook Add-in GitHub Pages Deployment</h1>
+        
+        <div class="status">
+            <strong>✅ GitHub Pages is Working!</strong><br>
+            Your Outlook Add-in files are successfully deployed and accessible.
+        </div>
+        
+        <h2>📁 Available Files</h2>
+        <div class="file-list">
+            <strong>Add-in Files:</strong><br>
+            <a href="./manifest-production.xml" target="_blank">📄 manifest-production.xml</a>
+            <a href="./taskpane.html" target="_blank">📄 taskpane.html</a>
+            <a href="./commands.html" target="_blank">📄 commands.html</a>
+            <a href="./taskpane.js" target="_blank">📄 taskpane.js</a>
+            <a href="./commands.js" target="_blank">📄 commands.js</a>
+            <a href="./assets/icon-16.png" target="_blank">🖼️ assets/icon-16.png</a>
+        </div>
+        
+        <h2>🚀 Next Steps</h2>
+        <ol>
+            <li><strong>Download the manifest:</strong> <a href="./manifest-production.xml" download>manifest-production.xml</a></li>
+            <li><strong>Test sideloading:</strong> Go to <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a></li>
+            <li><strong>Upload the manifest file</strong> you downloaded in step 1</li>
+            <li><strong>Test the add-in</strong> in Outlook Web</li>
+        </ol>
+        
+        <h2>📋 Deployment Info</h2>
+        <ul>
+            <li><strong>Repository:</strong> <a href="https://github.com/aminghali/outlook-addin-test" target="_blank">aminghali/outlook-addin-test</a></li>
+            <li><strong>Base URL:</strong> https://aminghali.github.io/outlook-addin-test/</li>
+            <li><strong>Status:</strong> ✅ Active and ready for testing</li>
+        </ul>
+        
+        <div class="status">
+            <strong>🔒 Privacy Note:</strong> This repository only contains the add-in manifest and minimal test files. No sensitive company data is exposed.
+        </div>
+    </div>
+    
+    <script>
+        // Test that JavaScript is working
+        console.log('GitHub Pages deployment successful!');
+        
+        // Add timestamp
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date().toLocaleString();
+            const footer = document.createElement('div');
+            footer.style.textAlign = 'center';
+            footer.style.marginTop = '30px';
+            footer.style.color = '#666';
+            footer.innerHTML = `<small>Page loaded at: ${now}</small>`;
+            document.body.appendChild(footer);
+        });
+    </script>
+</body>
+</html>
