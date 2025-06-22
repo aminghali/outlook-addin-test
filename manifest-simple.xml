@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xsi:type="MailApp">
+
+  <Id>21c40376-e7db-4e95-8760-87617be3641f</Id>
+  <Version>1.0.0</Version>
+  <ProviderName>Ghali Consultants</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Project Email Prefix" />
+  <Description DefaultValue="Simple Outlook add-in for project email management" />
+  <IconUrl DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+  <SupportUrl DefaultValue="https://aminghali.github.io/outlook-addin-test" />
+  
+  <AppDomains>
+    <AppDomain>https://aminghali.github.io</AppDomain>
+  </AppDomains>
+  
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://aminghali.github.io/outlook-addin-test/taskpane.html" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  
+  <Permissions>ReadWriteItem</Permissions>
+  
+</OfficeApp>
