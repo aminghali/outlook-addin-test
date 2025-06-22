@@ -36,92 +36,143 @@
             background: #f8f9fa; 
             padding: 15px; 
             border-radius: 4px; 
-            margin: 20px 0; 
         }
-        .file-list a { 
-            display: block; 
-            margin: 5px 0; 
-            color: #007bff; 
-            text-decoration: none; 
-        }
-        .file-list a:hover { 
-            text-decoration: underline; 
-        }
-        .highlight { 
-            background: #e7f3ff; 
-            padding: 15px; 
+        .file-item { 
+            margin: 10px 0; 
+            padding: 10px; 
+            background: white; 
+            border-radius: 4px; 
             border-left: 4px solid #007bff; 
+        }
+        .download-btn { 
+            background: #007bff; 
+            color: white; 
+            padding: 8px 16px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            display: inline-block; 
+            margin: 5px 5px 5px 0; 
+        }
+        .download-btn:hover { 
+            background: #0056b3; 
+        }
+        .simple-btn { 
+            background: #28a745; 
+            color: white; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            display: inline-block; 
+            margin: 5px 5px 5px 0; 
+            font-weight: bold;
+        }
+        .simple-btn:hover { 
+            background: #218838; 
+        }
+        .steps { 
+            background: #e7f3ff; 
+            padding: 20px; 
+            border-radius: 4px; 
             margin: 20px 0; 
+        }
+        .step { 
+            margin: 10px 0; 
+            padding: 10px 0; 
+            border-bottom: 1px solid #ddd; 
+        }
+        .step:last-child { 
+            border-bottom: none; 
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎉 Outlook Add-in GitHub Pages Deployment</h1>
+        <h1>🎉 Outlook Add-in - GitHub Pages Deployment</h1>
         
         <div class="status">
-            <strong>✅ GitHub Pages is Working!</strong><br>
-            Your Outlook Add-in files are successfully deployed and accessible.
+            <strong>✅ Status:</strong> Active and ready for testing!<br>
+            <strong>📅 Last Updated:</strong> <span id="timestamp"></span><br>
+            <strong>🌐 GitHub Pages URL:</strong> https://aminghali.github.io/outlook-addin-test/
         </div>
 
         <div class="warning">
-            <strong>🔧 Manifest Updated!</strong><br>
-            The manifest has been fixed to resolve installation issues. Please download the updated version below.
-        </div>
-        
-        <h2>📁 Available Files</h2>
-        <div class="file-list">
-            <strong>Add-in Files:</strong><br>
-            <a href="./manifest-production.xml" target="_blank">📄 manifest-production.xml</a> <strong>(UPDATED - Download this version!)</strong><br>
-            <a href="./taskpane.html" target="_blank">📄 taskpane.html</a>
-            <a href="./commands.html" target="_blank">📄 commands.html</a>
-            <a href="./taskpane.js" target="_blank">📄 taskpane.js</a>
-            <a href="./commands.js" target="_blank">📄 commands.js</a>
-            <a href="./assets/icon-16.png" target="_blank">🖼️ assets/icon-16.png</a>
-        </div>
-        
-        <div class="highlight">
-            <h3>🚀 Installation Steps (Updated)</h3>
-            <ol>
-                <li><strong>Download the UPDATED manifest:</strong> <a href="./manifest-production.xml" download>manifest-production.xml</a></li>
-                <li><strong>Clear browser cache</strong> and refresh Outlook Web</li>
-                <li><strong>Go to:</strong> <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a></li>
-                <li><strong>Upload the manifest file</strong> you downloaded in step 1</li>
-                <li><strong>Test the add-in</strong> in Outlook Web</li>
-            </ol>
+            <strong>⚠️ Installation Failed?</strong> Try the simplified manifest below - it's designed for easier sideloading with fewer features that might cause validation issues.
         </div>
 
-        <h2>🔧 What Was Fixed</h2>
-        <ul>
-            <li>✅ Removed WebApplicationInfo section (causing validation errors)</li>
-            <li>✅ Added ItemEdit form support for compose scenarios</li>
-            <li>✅ Simplified control structure to reduce complexity</li>
-            <li>✅ Fixed resource references and string IDs</li>
-            <li>✅ Ensured proper Office.js API version compatibility</li>
-        </ul>
-        
-        <h2>📋 Deployment Info</h2>
-        <ul>
-            <li><strong>Repository:</strong> <a href="https://github.com/aminghali/outlook-addin-test" target="_blank">aminghali/outlook-addin-test</a></li>
-            <li><strong>Base URL:</strong> https://aminghali.github.io/outlook-addin-test/</li>
-            <li><strong>Status:</strong> ✅ Active and ready for testing</li>
-            <li><strong>Last Updated:</strong> <span id="timestamp"></span></li>
-        </ul>
-        
-        <div class="status">
-            <strong>🔒 Privacy Note:</strong> This repository only contains the add-in manifest and minimal test files. No sensitive company data is exposed.
+        <h2>📥 Download Manifest Files</h2>
+        <div class="file-list">
+            <div class="file-item">
+                <strong>🟢 RECOMMENDED: Simplified Manifest</strong><br>
+                <small>Basic functionality, easier to sideload, fewer validation issues</small><br>
+                <a href="manifest-simple.xml" class="simple-btn" download>📥 Download manifest-simple.xml</a>
+                <a href="manifest-simple.xml" class="download-btn">🔗 View File</a>
+            </div>
+            
+            <div class="file-item">
+                <strong>Full Feature Manifest</strong><br>
+                <small>Complete functionality with ribbon commands (may have validation issues)</small><br>
+                <a href="manifest-production.xml" class="download-btn" download>📥 Download manifest-production.xml</a>
+                <a href="manifest-production.xml" class="download-btn">🔗 View File</a>
+            </div>
+        </div>
+
+        <h2>🚀 Installation Steps</h2>
+        <div class="steps">
+            <div class="step">
+                <strong>Step 1:</strong> Download the <strong>manifest-simple.xml</strong> file (recommended)
+            </div>
+            <div class="step">
+                <strong>Step 2:</strong> Go to <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a>
+            </div>
+            <div class="step">
+                <strong>Step 3:</strong> Sign in with your Microsoft account
+            </div>
+            <div class="step">
+                <strong>Step 4:</strong> Click "Upload manifest file" and select the downloaded XML file
+            </div>
+            <div class="step">
+                <strong>Step 5:</strong> Wait for installation to complete
+            </div>
+            <div class="step">
+                <strong>Step 6:</strong> Open Outlook Web, compose a new email, and look for "Project Email Prefix" in the add-ins section
+            </div>
+        </div>
+
+        <h2>📋 Available Files</h2>
+        <div class="file-list">
+            <div class="file-item">
+                <strong>taskpane.html</strong> - Main UI page<br>
+                <a href="taskpane.html" class="download-btn">🔗 View</a>
+            </div>
+            <div class="file-item">
+                <strong>commands.html</strong> - Commands page<br>
+                <a href="commands.html" class="download-btn">🔗 View</a>
+            </div>
+            <div class="file-item">
+                <strong>taskpane.js</strong> - Main functionality<br>
+                <a href="taskpane.js" class="download-btn">🔗 View</a>
+            </div>
+            <div class="file-item">
+                <strong>commands.js</strong> - Command functions<br>
+                <a href="commands.js" class="download-btn">🔗 View</a>
+            </div>
+            <div class="file-item">
+                <strong>assets/icon-16.png</strong> - Add-in icon<br>
+                <a href="assets/icon-16.png" class="download-btn">🔗 View</a>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>💡 Troubleshooting:</strong><br>
+            • If installation still fails, try the simplified manifest first<br>
+            • Ensure you're signed in with the correct Microsoft account<br>
+            • Clear browser cache and try again<br>
+            • Check that all URLs are accessible from this page
         </div>
     </div>
-    
+
     <script>
-        // Test that JavaScript is working
-        console.log('GitHub Pages deployment successful!');
-        
-        // Add timestamp
-        document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date().toLocaleString();
-            document.getElementById('timestamp').textContent = now;
-        });
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
     </script>
 </body>
 </html>
