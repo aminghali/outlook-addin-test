@@ -39,19 +39,15 @@
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://aminghali.github.io/outlook-addin-test/taskpane.html" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
   </FormSettings>
   
   <Permissions>ReadWriteItem</Permissions>
-  
-  <!-- WebApplicationInfo moved here, outside of VersionOverrides -->
-  <WebApplicationInfo>
-    <Id>21c40376-e7db-4e95-8760-87617be3641f</Id>
-    <Resource>api://aminghali.github.io/outlook-addin-test/21c40376-e7db-4e95-8760-87617be3641f</Resource>
-    <Scopes>
-      <Scope>User.Read</Scope>
-      <Scope>Mail.ReadWrite</Scope>
-    </Scopes>
-  </WebApplicationInfo>
   
   <!-- Add-in commands -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -116,23 +112,6 @@
                     </Action>
                   </Control>
                   
-                  <!-- Templates button -->
-                  <Control xsi:type="Button" id="TemplateButton">
-                    <Label resid="TemplateButtonLabel" />
-                    <Supertip>
-                      <Title resid="TemplateButtonTitle" />
-                      <Description resid="TemplateButtonTooltip" />
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16" />
-                      <bt:Image size="32" resid="Icon.32x32" />
-                      <bt:Image size="80" resid="Icon.80x80" />
-                    </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>selectEmailTemplate</FunctionName>
-                    </Action>
-                  </Control>
-                  
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
@@ -158,14 +137,11 @@
           <bt:String id="TaskPaneButtonTitle" DefaultValue="Project Manager" />
           <bt:String id="AddPrefixButtonLabel" DefaultValue="Add Prefix" />
           <bt:String id="AddPrefixButtonTitle" DefaultValue="Add Project Prefix" />
-          <bt:String id="TemplateButtonLabel" DefaultValue="Templates" />
-          <bt:String id="TemplateButtonTitle" DefaultValue="Email Templates" />
         </bt:ShortStrings>
         
         <bt:LongStrings>
           <bt:String id="TaskPaneButtonTooltip" DefaultValue="Manage project prefixes and email templates" />
           <bt:String id="AddPrefixButtonTooltip" DefaultValue="Automatically add project prefix to email subject" />
-          <bt:String id="TemplateButtonTooltip" DefaultValue="Apply project-specific email templates" />
         </bt:LongStrings>
       </Resources>
       
