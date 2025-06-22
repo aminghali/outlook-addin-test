@@ -25,6 +25,13 @@
             border-radius: 4px; 
             margin: 20px 0; 
         }
+        .warning { 
+            background: #fff3cd; 
+            color: #856404; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
+        }
         .file-list { 
             background: #f8f9fa; 
             padding: 15px; 
@@ -40,6 +47,12 @@
         .file-list a:hover { 
             text-decoration: underline; 
         }
+        .highlight { 
+            background: #e7f3ff; 
+            padding: 15px; 
+            border-left: 4px solid #007bff; 
+            margin: 20px 0; 
+        }
     </style>
 </head>
 <body>
@@ -50,11 +63,16 @@
             <strong>✅ GitHub Pages is Working!</strong><br>
             Your Outlook Add-in files are successfully deployed and accessible.
         </div>
+
+        <div class="warning">
+            <strong>🔧 Manifest Updated!</strong><br>
+            The manifest has been fixed to resolve installation issues. Please download the updated version below.
+        </div>
         
         <h2>📁 Available Files</h2>
         <div class="file-list">
             <strong>Add-in Files:</strong><br>
-            <a href="./manifest-production.xml" target="_blank">📄 manifest-production.xml</a>
+            <a href="./manifest-production.xml" target="_blank">📄 manifest-production.xml</a> <strong>(UPDATED - Download this version!)</strong><br>
             <a href="./taskpane.html" target="_blank">📄 taskpane.html</a>
             <a href="./commands.html" target="_blank">📄 commands.html</a>
             <a href="./taskpane.js" target="_blank">📄 taskpane.js</a>
@@ -62,19 +80,32 @@
             <a href="./assets/icon-16.png" target="_blank">🖼️ assets/icon-16.png</a>
         </div>
         
-        <h2>🚀 Next Steps</h2>
-        <ol>
-            <li><strong>Download the manifest:</strong> <a href="./manifest-production.xml" download>manifest-production.xml</a></li>
-            <li><strong>Test sideloading:</strong> Go to <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a></li>
-            <li><strong>Upload the manifest file</strong> you downloaded in step 1</li>
-            <li><strong>Test the add-in</strong> in Outlook Web</li>
-        </ol>
+        <div class="highlight">
+            <h3>🚀 Installation Steps (Updated)</h3>
+            <ol>
+                <li><strong>Download the UPDATED manifest:</strong> <a href="./manifest-production.xml" download>manifest-production.xml</a></li>
+                <li><strong>Clear browser cache</strong> and refresh Outlook Web</li>
+                <li><strong>Go to:</strong> <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a></li>
+                <li><strong>Upload the manifest file</strong> you downloaded in step 1</li>
+                <li><strong>Test the add-in</strong> in Outlook Web</li>
+            </ol>
+        </div>
+
+        <h2>🔧 What Was Fixed</h2>
+        <ul>
+            <li>✅ Removed WebApplicationInfo section (causing validation errors)</li>
+            <li>✅ Added ItemEdit form support for compose scenarios</li>
+            <li>✅ Simplified control structure to reduce complexity</li>
+            <li>✅ Fixed resource references and string IDs</li>
+            <li>✅ Ensured proper Office.js API version compatibility</li>
+        </ul>
         
         <h2>📋 Deployment Info</h2>
         <ul>
             <li><strong>Repository:</strong> <a href="https://github.com/aminghali/outlook-addin-test" target="_blank">aminghali/outlook-addin-test</a></li>
             <li><strong>Base URL:</strong> https://aminghali.github.io/outlook-addin-test/</li>
             <li><strong>Status:</strong> ✅ Active and ready for testing</li>
+            <li><strong>Last Updated:</strong> <span id="timestamp"></span></li>
         </ul>
         
         <div class="status">
@@ -89,12 +120,7 @@
         // Add timestamp
         document.addEventListener('DOMContentLoaded', function() {
             const now = new Date().toLocaleString();
-            const footer = document.createElement('div');
-            footer.style.textAlign = 'center';
-            footer.style.marginTop = '30px';
-            footer.style.color = '#666';
-            footer.innerHTML = `<small>Page loaded at: ${now}</small>`;
-            document.body.appendChild(footer);
+            document.getElementById('timestamp').textContent = now;
         });
     </script>
 </body>
