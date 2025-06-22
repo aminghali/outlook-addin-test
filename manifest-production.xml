@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp 
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
+  xsi:type="MailApp">
+
+  <!-- Basic add-in information -->
+  <Id>21c40376-e7db-4e95-8760-87617be3641f</Id>
+  <Version>1.0.0</Version>
+  <ProviderName>Ghali Consultants</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Project Email Prefix" />
+  <Description DefaultValue="Outlook add-in that automatically adds project-based prefixes to email subjects and manages email templates for organization projects" />
+  <IconUrl DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+  <HighResolutionIconUrl DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+  <SupportUrl DefaultValue="https://aminghali.github.io/outlook-addin-test" />
+  
+  <!-- Add-in capabilities -->
+  <AppDomains>
+    <AppDomain>https://aminghali.github.io</AppDomain>
+  </AppDomains>
+  
+  <Hosts>
+    <Host Name="Mailbox" />
+  </Hosts>
+  
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1" />
+    </Sets>
+  </Requirements>
+  
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://aminghali.github.io/outlook-addin-test/taskpane.html" />
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  
+  <Permissions>ReadWriteItem</Permissions>
+  
+  <!-- WebApplicationInfo moved here, outside of VersionOverrides -->
+  <WebApplicationInfo>
+    <Id>21c40376-e7db-4e95-8760-87617be3641f</Id>
+    <Resource>api://aminghali.github.io/outlook-addin-test/21c40376-e7db-4e95-8760-87617be3641f</Resource>
+    <Scopes>
+      <Scope>User.Read</Scope>
+      <Scope>Mail.ReadWrite</Scope>
+    </Scopes>
+  </WebApplicationInfo>
+  
+  <!-- Add-in commands -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" />
+        </bt:Sets>
+      </Requirements>
+      
+      <Hosts>
+        <Host xsi:type="MailHost">
+          
+          <!-- Task pane extension point -->
+          <DesktopFormFactor>
+            <!-- Function file for ExecuteFunction actions -->
+            <FunctionFile resid="Commands.Url" />
+            
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="ProjectEmailGroup">
+                  <Label resid="ProjectEmailGroupLabel" />
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                    <bt:Image size="32" resid="Icon.32x32" />
+                    <bt:Image size="80" resid="Icon.80x80" />
+                  </Icon>
+                  
+                  <!-- Task pane button -->
+                  <Control xsi:type="Button" id="TaskPaneButton">
+                    <Label resid="TaskPaneButtonLabel" />
+                    <Supertip>
+                      <Title resid="TaskPaneButtonTitle" />
+                      <Description resid="TaskPaneButtonTooltip" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16" />
+                      <bt:Image size="32" resid="Icon.32x32" />
+                      <bt:Image size="80" resid="Icon.80x80" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <TaskpaneId>ButtonId1</TaskpaneId>
+                      <SourceLocation resid="Taskpane.Url" />
+                    </Action>
+                  </Control>
+                  
+                  <!-- Add prefix button -->
+                  <Control xsi:type="Button" id="AddPrefixButton">
+                    <Label resid="AddPrefixButtonLabel" />
+                    <Supertip>
+                      <Title resid="AddPrefixButtonTitle" />
+                      <Description resid="AddPrefixButtonTooltip" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16" />
+                      <bt:Image size="32" resid="Icon.32x32" />
+                      <bt:Image size="80" resid="Icon.80x80" />
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>addProjectPrefix</FunctionName>
+                    </Action>
+                  </Control>
+                  
+                  <!-- Templates button -->
+                  <Control xsi:type="Button" id="TemplateButton">
+                    <Label resid="TemplateButtonLabel" />
+                    <Supertip>
+                      <Title resid="TemplateButtonTitle" />
+                      <Description resid="TemplateButtonTooltip" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16" />
+                      <bt:Image size="32" resid="Icon.32x32" />
+                      <bt:Image size="80" resid="Icon.80x80" />
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>selectEmailTemplate</FunctionName>
+                    </Action>
+                  </Control>
+                  
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+          <bt:Image id="Icon.32x32" DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+          <bt:Image id="Icon.80x80" DefaultValue="https://aminghali.github.io/outlook-addin-test/assets/icon-16.png" />
+        </bt:Images>
+        
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="https://aminghali.github.io/outlook-addin-test/commands.html" />
+          <bt:Url id="Taskpane.Url" DefaultValue="https://aminghali.github.io/outlook-addin-test/taskpane.html" />
+        </bt:Urls>
+        
+        <bt:ShortStrings>
+          <bt:String id="ProjectEmailGroupLabel" DefaultValue="Project Email" />
+          <bt:String id="TaskPaneButtonLabel" DefaultValue="Project Manager" />
+          <bt:String id="TaskPaneButtonTitle" DefaultValue="Project Manager" />
+          <bt:String id="AddPrefixButtonLabel" DefaultValue="Add Prefix" />
+          <bt:String id="AddPrefixButtonTitle" DefaultValue="Add Project Prefix" />
+          <bt:String id="TemplateButtonLabel" DefaultValue="Templates" />
+          <bt:String id="TemplateButtonTitle" DefaultValue="Email Templates" />
+        </bt:ShortStrings>
+        
+        <bt:LongStrings>
+          <bt:String id="TaskPaneButtonTooltip" DefaultValue="Manage project prefixes and email templates" />
+          <bt:String id="AddPrefixButtonTooltip" DefaultValue="Automatically add project prefix to email subject" />
+          <bt:String id="TemplateButtonTooltip" DefaultValue="Apply project-specific email templates" />
+        </bt:LongStrings>
+      </Resources>
+      
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
