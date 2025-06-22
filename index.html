@@ -25,85 +25,37 @@
             border-radius: 4px; 
             margin: 20px 0; 
         }
-        .warning { 
-            background: #fff3cd; 
-            color: #856404; 
+        .fixed { 
+            background: #cce5ff; 
+            color: #004085; 
             padding: 15px; 
             border-radius: 4px; 
             margin: 20px 0; 
-        }
-        .success { 
-            background: #d1ecf1; 
-            color: #0c5460; 
-            padding: 15px; 
-            border-radius: 4px; 
-            margin: 20px 0; 
-            border-left: 4px solid #17a2b8;
         }
         .file-list { 
             background: #f8f9fa; 
             padding: 15px; 
             border-radius: 4px; 
-        }
-        .file-item { 
-            margin: 10px 0; 
-            padding: 10px; 
-            background: white; 
-            border-radius: 4px; 
-            border-left: 4px solid #007bff; 
-        }
-        .download-btn { 
-            background: #007bff; 
-            color: white; 
-            padding: 8px 16px; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            display: inline-block; 
-            margin: 5px 5px 5px 0; 
-        }
-        .download-btn:hover { 
-            background: #0056b3; 
-        }
-        .working-btn { 
-            background: #17a2b8; 
-            color: white; 
-            padding: 12px 24px; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            display: inline-block; 
-            margin: 5px 5px 5px 0; 
-            font-weight: bold;
-            font-size: 16px;
-        }
-        .working-btn:hover { 
-            background: #138496; 
-        }
-        .simple-btn { 
-            background: #28a745; 
-            color: white; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            display: inline-block; 
-            margin: 5px 5px 5px 0; 
-            font-weight: bold;
-        }
-        .simple-btn:hover { 
-            background: #218838; 
-        }
-        .steps { 
-            background: #e7f3ff; 
-            padding: 20px; 
-            border-radius: 4px; 
             margin: 20px 0; 
         }
-        .step { 
+        .file-link { 
+            display: block; 
             margin: 10px 0; 
-            padding: 10px 0; 
-            border-bottom: 1px solid #ddd; 
+            padding: 10px; 
+            background: #e9ecef; 
+            text-decoration: none; 
+            color: #495057; 
+            border-radius: 4px; 
         }
-        .step:last-child { 
-            border-bottom: none; 
+        .file-link:hover { 
+            background: #dee2e6; 
+        }
+        .recommended { 
+            background: #fff3cd; 
+            color: #856404; 
+            padding: 15px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
         }
     </style>
 </head>
@@ -113,104 +65,59 @@
         
         <div class="status">
             <strong>✅ Status:</strong> Active and ready for testing!<br>
-            <strong>📅 Last Updated:</strong> <span id="timestamp"></span><br>
-            <strong>🌐 GitHub Pages URL:</strong> https://aminghali.github.io/outlook-addin-test/
+            <strong>📅 Last Updated:</strong> June 22, 2025 - Manifest Fixed!
         </div>
 
-        <div class="success">
-            <strong>🆕 FIXED!</strong> Created new manifest based on Microsoft's exact working pattern. This should resolve all installation issues!
+        <div class="fixed">
+            <strong>🔧 FIXED:</strong> Added missing &lt;Rule&gt; element and proper structure for email compose activation. The add-in should now appear in the Apps list when composing emails!
         </div>
 
-        <h2>📥 Download Manifest Files</h2>
+        <h2>📁 Available Files</h2>
         <div class="file-list">
-            <div class="file-item" style="border-left: 4px solid #17a2b8;">
-                <strong>🔥 NEW: Microsoft Pattern Manifest (RECOMMENDED)</strong><br>
-                <small>Based on Microsoft's exact working hello-world sample - should install without issues</small><br>
-                <a href="manifest-working.xml" class="working-btn" download>📥 Download manifest-working.xml</a>
-                <a href="manifest-working.xml" class="download-btn">🔗 View File</a>
-            </div>
-            
-            <div class="file-item">
-                <strong>🟢 Simplified Manifest</strong><br>
-                <small>Basic functionality, minimal features</small><br>
-                <a href="manifest-simple.xml" class="simple-btn" download>📥 Download manifest-simple.xml</a>
-                <a href="manifest-simple.xml" class="download-btn">🔗 View File</a>
-            </div>
-            
-            <div class="file-item">
-                <strong>Full Feature Manifest</strong><br>
-                <small>Complete functionality with ribbon commands (may have validation issues)</small><br>
-                <a href="manifest-production.xml" class="download-btn" download>📥 Download manifest-production.xml</a>
-                <a href="manifest-production.xml" class="download-btn">🔗 View File</a>
-            </div>
+            <a href="manifest-production.xml" class="file-link" download>
+                <strong>📄 manifest-production.xml</strong> - ⭐ RECOMMENDED (Fixed Version)
+            </a>
+            <a href="manifest-working.xml" class="file-link" download>
+                <strong>📄 manifest-working.xml</strong> - Alternative version
+            </a>
+            <a href="manifest-simple.xml" class="file-link" download>
+                <strong>📄 manifest-simple.xml</strong> - Minimal version
+            </a>
+            <a href="taskpane.html" class="file-link">
+                <strong>🌐 taskpane.html</strong> - Main UI page
+            </a>
+            <a href="commands.html" class="file-link">
+                <strong>🌐 commands.html</strong> - Commands page
+            </a>
+            <a href="taskpane.js" class="file-link">
+                <strong>⚙️ taskpane.js</strong> - Main functionality
+            </a>
+            <a href="commands.js" class="file-link">
+                <strong>⚙️ commands.js</strong> - Command functions
+            </a>
         </div>
 
-        <h2>🚀 Installation Steps</h2>
-        <div class="steps">
-            <div class="step">
-                <strong>Step 1:</strong> Download the <strong>manifest-working.xml</strong> file (🔥 RECOMMENDED - Microsoft pattern)
-            </div>
-            <div class="step">
-                <strong>Step 2:</strong> Go to <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a>
-            </div>
-            <div class="step">
-                <strong>Step 3:</strong> Sign in with your Microsoft account
-            </div>
-            <div class="step">
-                <strong>Step 4:</strong> Click "Upload manifest file" and select the downloaded XML file
-            </div>
-            <div class="step">
-                <strong>Step 5:</strong> Wait for installation to complete
-            </div>
-            <div class="step">
-                <strong>Step 6:</strong> Open Outlook Web, compose a new email, and look for "Project Email" group in the ribbon
-            </div>
+        <div class="recommended">
+            <h3>🚀 How to Test the Fixed Version:</h3>
+            <ol>
+                <li><strong>Remove the old add-in</strong> from Outlook Web (Custom Add-ins page)</li>
+                <li><strong>Download the updated manifest-production.xml</strong> (click link above)</li>
+                <li><strong>Go to:</strong> <a href="https://aka.ms/olksideload" target="_blank">https://aka.ms/olksideload</a></li>
+                <li><strong>Upload the new manifest file</strong></li>
+                <li><strong>Compose a new email</strong> - the add-in should now appear in the Apps list!</li>
+            </ol>
         </div>
 
         <h2>🔧 What Was Fixed</h2>
-        <div class="warning">
-            <strong>Key Issues Resolved:</strong><br>
-            ✅ Added missing <code>&lt;Rule&gt;</code> elements for proper activation<br>
-            ✅ Added <code>&lt;DisableEntityHighlighting&gt;</code> element<br>
-            ✅ Used exact Microsoft namespace structure<br>
-            ✅ Simplified VersionOverrides to V1_0 only<br>
-            ✅ Removed complex nested version overrides<br>
-            ✅ Fixed Version format (1.0.0.0 instead of 1.0.0)<br>
-            ✅ Used exact Microsoft extension point pattern
-        </div>
+        <ul>
+            <li>✅ Added missing <code>&lt;Rule&gt;</code> element for proper activation</li>
+            <li>✅ Added <code>&lt;DisableEntityHighlighting&gt;</code> element</li>
+            <li>✅ Fixed Version format to <code>1.0.0.0</code></li>
+            <li>✅ Proper extension point configuration for email compose</li>
+            <li>✅ Follows Microsoft's exact working pattern</li>
+        </ul>
 
-        <h2>📋 Available Files</h2>
-        <div class="file-list">
-            <div class="file-item">
-                <strong>taskpane.html</strong> - Main UI page<br>
-                <a href="taskpane.html" class="download-btn">🔗 View</a>
-            </div>
-            <div class="file-item">
-                <strong>commands.html</strong> - Commands page<br>
-                <a href="commands.html" class="download-btn">🔗 View</a>
-            </div>
-            <div class="file-item">
-                <strong>taskpane.js</strong> - Main functionality<br>
-                <a href="taskpane.js" class="download-btn">🔗 View</a>
-            </div>
-            <div class="file-item">
-                <strong>commands.js</strong> - Command functions<br>
-                <a href="commands.js" class="download-btn">🔗 View</a>
-            </div>
-            <div class="file-item">
-                <strong>assets/icon-16.png</strong> - Add-in icon<br>
-                <a href="assets/icon-16.png" class="download-btn">🔗 View</a>
-            </div>
-        </div>
-
-        <div class="success">
-            <strong>💡 Why This Should Work:</strong><br>
-            The new manifest follows Microsoft's exact hello-world pattern that's proven to work with sideloading. All the validation issues have been resolved by matching their structure exactly.
-        </div>
+        <p><small>Repository: <a href="https://github.com/aminghali/outlook-addin-test" target="_blank">aminghali/outlook-addin-test</a></small></p>
     </div>
-
-    <script>
-        document.getElementById('timestamp').textContent = new Date().toLocaleString();
-    </script>
 </body>
 </html>
